@@ -9,7 +9,7 @@
         :id="`search-prediction-category-${index}`"
         :value="label"
         v-bind="$attrs"
-        v-model="modelValue"
+        v-model="value"
       >
         {{ label }}
       </BaseRadio>
@@ -21,6 +21,11 @@
 import BaseRadio from './BaseRadio.vue'
 
 export default {
+  data() {
+    return {
+      value: ''
+    }
+  },
   components: {
     BaseRadio
   },
@@ -28,6 +33,9 @@ export default {
   props: {
     categories: Array,
     modelValue: String
-  }
+  },
+  mounted() {
+    this.value = this.modelValue
+  },
 }
 </script>

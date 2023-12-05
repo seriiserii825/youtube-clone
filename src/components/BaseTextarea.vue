@@ -2,7 +2,7 @@
   <div class="relative">
     <textarea
       v-bind="$attrs"
-      v-model="modelValue"
+      v-model="value"
       @input="adjustHeight"
       :maxlength="limit"
       ref="textarea"
@@ -25,6 +25,11 @@ export default {
     modelValue: String,
     limit: Number
   },
+  data() {
+    return {
+      value: ''
+    }
+  },
 
   computed: {
     counter () {
@@ -34,6 +39,7 @@ export default {
 
   mounted () {
     this.adjustHeight()
+    this.value = this.modelValue
   },
 
   methods: {

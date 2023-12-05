@@ -9,7 +9,7 @@
         :id="`search-prediction-${index}`"
         :value="label"
         v-bind="$attrs"
-        v-model="modelValue"
+        v-model="value"
       >
         {{ label }}
       </BaseCheckbox>
@@ -28,6 +28,14 @@ export default {
   props: {
     searchPredictions: Array,
     modelValue: Array
+  },
+  data() {
+    return {
+      value: []
+    }
+  },
+  mounted() {
+    this.value = this.modelValue
   }
 }
 </script>
